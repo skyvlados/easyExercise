@@ -56,6 +56,46 @@ class Task3Comet
     }
 
 }
+
+class Task4PingPong
+{
+    private int $i=1;
+
+    public function getMessage()
+    {
+        while ($this->i <= 30) {
+            if ($this->i%5 === 0 && $this->i%3 === 0) {
+                echo $this->i . ": ping pong\n";
+            } elseif ($this->i % 5 === 0) {
+                echo $this->i . ": pong\n";
+            } elseif ($this->i%3 === 0) {
+                echo $this->i . ": ping\n";
+            } else {
+                echo $this->i.":\n";
+            }
+            $this->i++;
+        }
+    }
+}
+
+class Task5Fibbonachy
+{
+    private int $i=1;
+    private int $first=0;
+    private int $second=1;
+    private int $nextNumber;
+
+    public function getFibbonachy()
+    {
+        while ($this->i <= 10) {
+            $this->nextNumber=$this->first+$this->second;
+            echo $this->first." ";
+            $this->first=$this->second;
+            $this->second=$this->nextNumber;
+            $this->i++;
+        }
+    }
+}
 echo "Task1:\n";
 $task1 = new Task1Numbers();
 echo $task1->getNumbersIncrease()."\n";
@@ -66,3 +106,9 @@ echo $task2->getFridays();
 echo "Task3:\n";
 $task3 = new Task3Comet();
 echo $task3->getYears();
+echo "Task4:\n";
+$task4 = new Task4PingPong();
+$task4->getMessage();
+echo "Task5:\n";
+$task5 = new Task5Fibbonachy();
+$task5->getFibbonachy();
